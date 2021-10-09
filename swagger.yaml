@@ -1,0 +1,137 @@
+// 20211009012333
+// http://localhost:8081/v3/api-docs
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/magic": {
+      "post": {
+        "tags": [
+          "eight-ball-controller"
+        ],
+        "operationId": "createEightBall",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EightBall"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EightBall"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/word": {
+      "get": {
+        "tags": [
+          "word-controller"
+        ],
+        "operationId": "getWord",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Word"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quote": {
+      "get": {
+        "tags": [
+          "quote-controller"
+        ],
+        "operationId": "getQuote",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EightBall": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Word": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string"
+          },
+          "definition": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "quote": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}
